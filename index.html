@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rovix</title>
+    <!-- App icon, favicon, and mobile home screen icons -->
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <link rel="shortcut icon" href="/icon.png" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icon.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#191b1d" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Rovix" />
+    <meta name="description" content="Rovix — Sandbox gaming platform, 3D avatar creator, Rovix Studio &amp; real-time multiplayer." />
+    <meta property="og:title" content="Rovix" />
+    <meta property="og:description" content="Rovix — Sandbox gaming platform, 3D avatar creator, Rovix Studio &amp; real-time multiplayer." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="bg-[#191b1d] text-white selection:bg-[#393b3d] select-none overflow-hidden">
+    <div id="root">
+      <!-- Site Loading Screen (Displays icon.png instantly while web app initializes) -->
+      <div id="site-loading-screen" style="position: fixed; inset: 0; background: #191b1d; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; user-select: none;">
+        <div style="position: relative; width: 96px; height: 96px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+          <div style="position: absolute; inset: -8px; background: rgba(59, 130, 246, 0.2); border-radius: 28px; filter: blur(16px); animation: sitePulse 1.8s ease-in-out infinite;"></div>
+          <img
+            id="site-loader-icon"
+            src="/icon.png"
+            alt="Rovix"
+            style="width: 88px; height: 88px; object-fit: contain; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); position: relative; z-index: 2;"
+            onerror="if (!this.src.endsWith('/logo.png')) { this.src = '/logo.png'; }"
+          />
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; animation: sitePing 1.2s cubic-bezier(0, 0, 0.2, 1) infinite;"></span>
+          <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #d1d5db;">Loading Rovix...</span>
+        </div>
+        <div style="width: 140px; height: 3px; background: #26282b; border-radius: 9999px; overflow: hidden; position: relative;">
+          <div style="position: absolute; top: 0; bottom: 0; left: 0; width: 50%; background: linear-gradient(90deg, #3b82f6, #6366f1); border-radius: 9999px; animation: siteLoaderBar 1.4s ease-in-out infinite;"></div>
+        </div>
+        <style>
+          @keyframes sitePulse {
+            0%, 100% { opacity: 0.5; transform: scale(0.96); }
+            50% { opacity: 0.9; transform: scale(1.04); }
+          }
+          @keyframes sitePing {
+            75%, 100% { transform: scale(2); opacity: 0; }
+          }
+          @keyframes siteLoaderBar {
+            0% { left: -50%; width: 40%; }
+            50% { left: 30%; width: 60%; }
+            100% { left: 100%; width: 30%; }
+          }
+        </style>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
